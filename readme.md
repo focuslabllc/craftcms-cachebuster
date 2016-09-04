@@ -21,19 +21,27 @@ You have 3 options for creating cache busting file paths. They're all the same r
 
 **The Craft Variable**
 
-	{{ craft.cacheBuster.bust('/css/site.css') }}
+```twig
+{{ craft.cacheBuster.bust('/css/site.css') }}
+````
 
 **The Twig Filter**
 
-	{{ '/css/site.css' | cacheBuster }}
+```twig
+{{ '/css/site.css' | cacheBuster }}
+```
 
 **The Twig Function**
 
-	{{ cacheBuster('/css/sites.css') }}
+```twig
+{{ cacheBuster('/css/sites.css') }}
+```
 
 These will all return something like
 
-	/css/style.css?v=1472591574
+```html
+/css/style.css?v=1472591574
+```
 
 Where `1472591574` is the UNIX timestamp of the last time `/css/style.css` was saved to the server.
 
@@ -41,15 +49,19 @@ Where `1472591574` is the UNIX timestamp of the last time `/css/style.css` was s
 
 You can change the separator between the file and the timestamp by passing an argument through any of these code examples. They would then respectively look something like this:
 
-	{{ craft.cacheBuster.bust('/css/site.css', 'bustIt=') }}
+```twig
+{{ craft.cacheBuster.bust('/css/site.css', 'bustIt=') }}
 
-	{{ '/css/site.css' | cacheBuster('bustIt=') }}
+{{ '/css/site.css' | cacheBuster('bustIt=') }}
 
-	{{ cacheBuster('/css/site.css', 'bustIt=') }}
+{{ cacheBuster('/css/site.css', 'bustIt=') }}
+```
 
 These will all return something like
 
-	/css/style.css?bustIt=1472591574
+```html
+/css/style.css?bustIt=1472591574
+```
 
 ## Change Log
 
