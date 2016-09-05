@@ -1,5 +1,14 @@
 [
 	{
+		"version": "1.1.0",
+		"downloadUrl": "https://github.com/focuslabllc/craftcms-cachebuster/archive/1.1.0.zip",
+		"date": "2016-09-05T12:00:00-05:00",
+		"notes": [
+			"Added support for flat file manifests for those revving files. No query string needed with this approach.",
+			"Added support for using a consistent query string for all cache busting (like a git commit hash/substring)."
+		]
+	},
+	{
 		"version": "1.0.0",
 		"downloadUrl": "https://github.com/focuslabllc/craftcms-cachebuster/archive/1.0.0.zip",
 		"date": "2016-09-03T12:00:00-05:00",
