@@ -143,6 +143,10 @@ _This file will only exist if specific errors have occurred while using Cache Bu
 
 ## Change Log
 
+**Sept 6th, 2016: 1.1.1**
+
+- Added some smarter logic around handling asset manifest keys.
+
 **Sept 5th, 2016: 1.1.0**
 
 - Added support for flat file manifests for those revving files. No query string needed with this approach.

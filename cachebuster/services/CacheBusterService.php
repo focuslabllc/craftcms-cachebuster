@@ -8,7 +8,7 @@ namespace Craft;
  * @copyright  Copyright (c) 2016, Focus Lab, LLC
  * @see        https://github.com/focuslabllc/craftcms-cachebuster
  * @package    cachebuster
- * @version    1.1.0
+ * @version    1.1.1
  */
 
 class CacheBusterService extends BaseApplicationComponent
@@ -70,14 +70,38 @@ class CacheBusterService extends BaseApplicationComponent
 		// We made it here so let's parse the file as json
 		$manifest = $this->manifestToArray($manifestFile);
 
+		// See if we have a key with our file path
 		if (isset($manifest[$file]))
 		{
 			return $manifest[$file];
 		}
+
+		/**
+		 * Maybe the asset manifest does the opposite of what the developer/team does in temrs of
+		 * leading slashes in file paths. So let's just double check we don't have a key that might
+		 * be the same but different.
+		 *
+		 * Example, in my template I may have used {{ cacheBuster('/css/site.css') }}
+		 * but my manifest might have the key of 'css/site.css'
+		 */
+		if (substr($file, 0, 1) === '/')
+		{
+			if (isset($manifest[ltrim($file, '/')]))
+			{
+				return $manifest[ltrim($file, '/')];
+			}
+		}
 		else
 		{
-			return $this->tryQueryString($file, $name);
+			if (isset($manifest['/' . $file]))
+			{
+				return $manifest['/' . $file];
+			}
 		}
+
+
+		// If we made it this far, our manifest options didn't work out. So we'll fall back to query string
+		return $this->tryQueryString($file, $name);
 
 	}
 	// End function tryManifest()

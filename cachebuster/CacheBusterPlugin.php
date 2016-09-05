@@ -8,7 +8,7 @@ namespace Craft;
  * @copyright  Copyright (c) 2016, Focus Lab, LLC
  * @see        https://github.com/focuslabllc/craftcms-cachebuster
  * @package    cachebuster
- * @version    1.1.0
+ * @version    1.1.1
  */
 class CacheBusterPlugin extends BasePlugin
 {
