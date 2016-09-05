@@ -19,7 +19,7 @@ If you'd like to use a single query string to bust your cache, you'll want to us
 Lastly, if you already rev your files before deploying them, you can check out the **Revved Files Manifest** section below. This is the recommended route, but only if you kinda already know what it means. ([Click here to learn a bit about it.](https://www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/))
 
 - - -
- 
+
 ## Auto Query String
 
 You have 3 options for creating cache busting file paths. They're all the same result. It's just a matter of which style you prefer. They are:
@@ -123,7 +123,11 @@ Each of these will respect your manifest. If for any reason Cache Buster can't f
 
 So no matter what you get a cache busted asset served.
 
+## Debugging
 
+If you're not getting the result you experience, start by checking the Cache Buster log file. You can find it in `craft/storage/runtime/logs/cachebuster.log` or by viewing it in the Admin area at `/admin/utils/logs/cachebuster.log`.
+
+_This file will only exist if specific errors have occurred while using Cache Buster._
 
 ## Change Log
 
