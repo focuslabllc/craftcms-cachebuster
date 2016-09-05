@@ -84,7 +84,8 @@ Your complete file might look something like this:
 
 return array(
 	'queryString'   => 'ad7f89'
-);```
+);
+```
 
 You can also adjust this config file to support [multiple environments](https://craftcms.com/docs/multi-environment-configs) in the same way you might do so with your Craft config.
 
@@ -105,7 +106,8 @@ Cache Buster uses the name of your original file as the `key` when using a manif
 ```json
 {
 	"/css/site.css": "/css/site.12345.css"
-}```
+}
+```
 
 And you would reference this in your front-end with one of the three samples from the **Simple Query String** section.
 
