@@ -39,16 +39,16 @@ You have 3 options for creating cache busting file paths. They're all the same r
 **The Twig Function**
 
 ```twig
-{{ cacheBuster('/css/sites.css') }}
+{{ cacheBuster('/css/site.css') }}
 ```
 
 These will all return something like
 
 ```html
-/css/style.css?v=1472591574
+/css/site.css?v=1472591574
 ```
 
-Where `1472591574` is the UNIX timestamp of the last time `/css/style.css` was saved to the server.
+Where `1472591574` is the UNIX timestamp of the last time `/css/site.css` was saved to the server.
 
 ### Options
 
@@ -65,7 +65,7 @@ You can change the separator between the file and the timestamp by passing an ar
 These will all return something like
 
 ```html
-/css/style.css?bustIt=1472591574
+/css/site.css?bustIt=1472591574
 ```
 
 ## Manual Query String
@@ -77,13 +77,13 @@ To configure Cache Buster to use the same query string for all cache busting, yo
 2. Return an array with the key `queryString`
 3. That's it!
 
-Your complete file might look something like this:
+Your config file might look something like this:
 
 ```php
 <?php
 
 return array(
-	'queryString'   => 'ad7f89'
+	'queryString' => 'ad7f89'
 );
 ```
 
@@ -100,6 +100,18 @@ Assuming you already have files being revved, and are generating some type of ma
 2. Create a new file called `craft/config/cachebuster.php`
 2. Return an array with the key `assetManifest` and a value pointing to your `.json` file
 3. That's it!
+
+Your config file might look something like this:
+
+```php
+<?php
+
+return array(
+	'assetManifest' => 'assets/assetManifest.json'
+);
+```
+
+**Important:** Cache Buster assums the `assetManifest` path will start at the same directory level as your `craft` directory. In the example above, `assets` is a sibling directory to `craft` on server.
 
 Cache Buster uses the name of your original file as the `key` when using a manifest json object. So if your original working front-end file is located at `/css/site.css` your manifest would include it like this:
 
