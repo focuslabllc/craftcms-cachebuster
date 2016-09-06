@@ -1,6 +1,6 @@
 # Cache Buster
 
-A Craft plugin that adds a simple cache buster to your flat file references.
+A Craft plugin that helps keep your front-end assets free of cache issues after they've changed.
 
 
 ## Installation
