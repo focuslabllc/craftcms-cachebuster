@@ -77,7 +77,7 @@ class CacheBusterService extends BaseApplicationComponent
 		}
 
 		/**
-		 * Maybe the asset manifest does the opposite of what the developer/team does in temrs of
+		 * Maybe the asset manifest does the opposite of what the developer/team does in terms of
 		 * leading slashes in file paths. So let's just double check we don't have a key that might
 		 * be the same but different.
 		 *
