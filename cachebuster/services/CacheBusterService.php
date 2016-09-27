@@ -8,7 +8,7 @@ namespace Craft;
  * @copyright  Copyright (c) 2016, Focus Lab, LLC
  * @see        https://github.com/focuslabllc/craftcms-cachebuster
  * @package    cachebuster
- * @version    1.1.1
+ * @version    1.2.1
  */
 
 class CacheBusterService extends BaseApplicationComponent
@@ -22,17 +22,17 @@ class CacheBusterService extends BaseApplicationComponent
 	 * @access    public
 	 * @return    string
 	 */
-	public function bustThatCache($file, $name = false)
+	public function bustThatCache($file, $name = false, $prefix = false)
 	{
 		// If we have a manifest file and if the manifest object
 		// contains a key for our file, we'll just serve that value and be done
 		if (craft()->config->get('assetManifest', 'cachebuster'))
 		{
-			return $this->tryManifest($file, $name);
+			return $this->runPrefix($prefix, $this->tryManifest($file, $name));
 		}
 		else
 		{
-			return $this->tryQueryString($file, $name);
+			return $this->runPrefix($prefix, $this->tryQueryString($file, $name));
 		}
 
 	}
@@ -195,5 +195,30 @@ class CacheBusterService extends BaseApplicationComponent
 		return $manifest;
 	}
 	// End function manifestToArray()
+
+
+
+	/**
+	 * Prepend a prefix string
+	 *
+	 * If a prefix argument is passed to the variable/tag/function in twig
+	 * then we'll add that to the beginning of the string. If one isn't passed,
+	 * we'll check for an assetPrefix config item (which may be used if ALL assets
+	 * should be returned with the same prefix). If there is not prefix, just return
+	 * the file as-is.
+	 *
+	 * @param     $prefix    string
+	 * @param     $file      string
+	 * @access    private
+	 * @return    string
+	 */
+	private function runPrefix($prefix = false, $file)
+	{
+		if (! $prefix AND craft()->config->get('assetPrefix', 'cachebuster'))
+		{
+			$prefix = craft()->config->get('assetPrefix', 'cachebuster');
+		}
+		return ($prefix) ? $prefix . $file : $file ;
+	}
 
 }

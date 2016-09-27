@@ -143,6 +143,10 @@ _This file will only exist if specific errors have occurred while using Cache Bu
 
 ## Change Log
 
+**Sept 27th, 2016: 1.2.1**
+
+- Added the ability to prefix an asset string globally or individually
+
 **Sept 6th, 2016: 1.1.1**
 
 - Added some smarter logic around handling asset manifest keys.

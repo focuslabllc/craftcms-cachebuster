@@ -8,7 +8,7 @@ namespace Craft;
  * @copyright  Copyright (c) 2016, Focus Lab, LLC
  * @see        https://github.com/focuslabllc/craftcms-cachebuster
  * @package    cachebuster
- * @version    1.1.1
+ * @version    1.2.1
  */
 class CacheBusterVariable
 {
@@ -21,9 +21,9 @@ class CacheBusterVariable
 	 * @access    public
 	 * @return    string
 	 */
-	public function bust($string, $name = 'v=')
+	public function bust($string, $prefix = false, $name = 'v=')
 	{
-		return craft()->cacheBuster->bustThatCache($string, $name);
+		return craft()->cacheBuster->bustThatCache($string, $name, $prefix);
 	}
 
 }
