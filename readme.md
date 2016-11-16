@@ -143,6 +143,10 @@ _This file will only exist if specific errors have occurred while using Cache Bu
 
 ## Change Log
 
+**Nov 16th, 2016: 1.2.2**
+
+- Added new error logging for the query string cache busting method.
+
 **Sept 27th, 2016: 1.2.1**
 
 - Added the ability to prefix an asset string globally or individually

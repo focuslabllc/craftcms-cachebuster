@@ -8,7 +8,7 @@ namespace Craft;
  * @copyright  Copyright (c) 2016, Focus Lab, LLC
  * @see        https://github.com/focuslabllc/craftcms-cachebuster
  * @package    cachebuster
- * @version    1.2.1
+ * @version    1.2.2
  */
 
 class CacheBusterService extends BaseApplicationComponent
@@ -155,6 +155,7 @@ class CacheBusterService extends BaseApplicationComponent
 
 		if (! $filePath)
 		{
+			CacheBusterPlugin::log('Could not find your asset file (value provided was \'' . $file . '\' and we looked for the file at \'' . $rootPath . $file . '\')', LogLevel::Error);
 			return $file;
 		}
 

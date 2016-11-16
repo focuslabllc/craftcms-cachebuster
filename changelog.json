@@ -1,5 +1,13 @@
 [
 	{
+		"version": "1.2.2",
+		"downloadUrl": "https://github.com/focuslabllc/craftcms-cachebuster/archive/1.2.2.zip",
+		"date": "2016-11-16T12:00:00-05:00",
+		"notes": [
+			"[Added] Added new error logging for the query string cache busting method."
+		]
+	},
+	{
 		"version": "1.2.1",
 		"downloadUrl": "https://github.com/focuslabllc/craftcms-cachebuster/archive/1.2.1.zip",
 		"date": "2016-09-27T12:00:00-05:00",
