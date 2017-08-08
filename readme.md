@@ -111,7 +111,7 @@ return array(
 );
 ```
 
-**Important:** Cache Buster assums the `assetManifest` path will start at the same directory level as your `craft` directory. In the example above, `assets` is a sibling directory to `craft` on server.
+**Important:** Cache Buster assumes the `assetManifest` path will start at the same directory level as your `craft` directory. In the example above, `assets` is a sibling directory to `craft` on server.
 
 Cache Buster uses the name of your original file as the `key` when using a manifest json object. So if your original working front-end file is located at `/css/site.css` your manifest would include it like this:
 
